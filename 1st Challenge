@@ -1,0 +1,30 @@
+class Vacation {
+    constructor(destination, length) {
+        this.destination = destination;
+        this.length = length;
+    }
+}
+
+class Expedition extends Vacation {
+    constructor(destination, length, survivalRate, items) {
+        super(destination, length);
+        this.survivalRate = survivalRate;
+        this.items = items;
+    }
+}
+
+function createExpedition(details) {
+    // Assuming the details array is in the order of [destination, length, survivalRate, items]
+    const [destination,length,survivalRate,...items] = details;
+
+    // Constructing an Expedition object with the provided details
+    const expedition = new Expedition(destination,length,survivalRate,items);
+
+    // Returning the survivalRate of the expedition
+    return expedition.survivalRate;
+}
+
+// Example usage:
+const expDetails = ["Desolation Wilderness", 10, 0.5, "Rope", "Tent", "Food"];
+const survivalRate = createExpedition(expDetails);
+console.log(`The survival rate for this expedition is: ${survivalRate}`);
