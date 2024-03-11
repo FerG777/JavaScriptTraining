@@ -1,11 +1,30 @@
+/**
+ * Class representing a vacation.
+ */
 class Vacation {
+    /**
+     * Create a vacation.
+     * @param {string} destination - The destination of the vacation.
+     * @param {number} length - The length of the vacation in days.
+     */
     constructor(destination, length) {
         this.destination = destination;
         this.length = length;
     }
 }
 
+/**
+ * Class representing an expedition, which is a type of vacation.
+ * @extends Vacation
+ */
 class Expedition extends Vacation {
+    /**
+     * Create an expedition.
+     * @param {string} destination - The destination of the expedition.
+     * @param {number} length - The length of the expedition in days.
+     * @param {number} survivalRate - The survival rate of the expedition.
+     * @param {Array<string>} items - The list of items to take on the expedition.
+     */
     constructor(destination, length, survivalRate, items) {
         super(destination, length);
         this.survivalRate = survivalRate;
@@ -13,14 +32,19 @@ class Expedition extends Vacation {
     }
 }
 
+/**
+ * Creates an expedition with given details.
+ * @param {Array} details - Details of the expedition.
+ * @returns {number} The survival rate of the created expedition.
+ */
 function createExpedition(details) {
     // Assuming the details array is in the order of [destination, length, survivalRate, items]
-    const [destination,length,survivalRate,...items] = details;
+    const [destination, length, survivalRate, ...items] = details;
 
     // Constructing an Expedition object with the provided details
-    const expedition = new Expedition(destination,length,survivalRate,items);
+    const expedition = new Expedition(destination, length, survivalRate, items);
 
-    // Returning the survivalRate of the expedition
+    // Returning the survival rate of the expedition
     return expedition.survivalRate;
 }
 
