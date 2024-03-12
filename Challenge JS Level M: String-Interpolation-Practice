@@ -1,22 +1,20 @@
-// Define la clase Book
+// Define the Book class
 class Book {
-    // Constructor de la clase Book
+    // Constructor for the Book class
     constructor(title, author, pages) {
-        // Inicializa las propiedades del libro
-        this.title = title;     // Título del libro
-        this.author = author;   // Autor del libro
-        this.pages = pages;     // Número de páginas del libro
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
     }
 
-    // Método para obtener la información del libro
+    // Method to display the book information
     getInfo() {
-        // Retorna una cadena con la información del libro
         return `${this.title} by ${this.author}, ${this.pages} pages`;
     }
 }
 
-// Instancia de la clase Book
+// Instantiate the Book class
 const book = new Book("The Catcher in the Rye", "J.D. Salinger", 224);
 
-// Mostrar la información del libro en la consola
+// Display the book information in the console
 console.log(book.getInfo());
